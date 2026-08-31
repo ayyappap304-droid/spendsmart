@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpendSmart — Expense Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="chinnu.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <div class="brand">
+        <span class="brand-icon">💸</span>
+        <div>
+          <h1>SpendSmart</h1>
+          <p>Know where every rupee goes</p>
+        </div>
+      </div>
+      <div class="header-date" id="header-date"></div>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="summary-grid">
+      <div class="summary-card total">
+        <div class="summary-label">Total Spent</div>
+        <div class="summary-amount" id="total-amount">₹0</div>
+        <div class="summary-sub" id="total-count">0 expenses</div>
+      </div>
+      <div class="summary-card food">
+        <div class="summary-label">🍔 Food</div>
+        <div class="summary-amount" id="food-amount">₹0</div>
+        <div class="summary-sub" id="food-count">0 expenses</div>
+      </div>
+      <div class="summary-card travel">
+        <div class="summary-label">🚗 Travel</div>
+        <div class="summary-amount" id="travel-amount">₹0</div>
+        <div class="summary-sub" id="travel-count">0 expenses</div>
+      </div>
+      <div class="summary-card shopping">
+        <div class="summary-label">🛍️ Shopping</div>
+        <div class="summary-amount" id="shopping-amount">₹0</div>
+        <div class="summary-sub" id="shopping-count">0 expenses</div>
+      </div>
+      <div class="summary-card bills">
+        <div class="summary-label">💡 Bills</div>
+        <div class="summary-amount" id="bills-amount">₹0</div>
+        <div class="summary-sub" id="bills-count">0 expenses</div>
+      </div>
+      <div class="summary-card other">
+        <div class="summary-label">📦 Other</div>
+        <div class="summary-amount" id="other-amount">₹0</div>
+        <div class="summary-sub" id="other-count">0 expenses</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- ADD EXPENSE FORM -->
+    <section class="form-section">
+      <h2>Add New Expense</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="title-input">Title</label>
+          <input type="text" id="title-input" placeholder="e.g. Lunch at Subway" />
+        </div>
+        <div class="form-group">
+          <label for="amount-input">Amount (₹)</label>
+          <input type="number" id="amount-input" placeholder="e.g. 250" min="0" />
+        </div>
+        <div class="form-group">
+          <label for="category-input">Category</label>
+          <select id="category-input">
+            <option value="food">🍔 Food</option>
+            <option value="travel">🚗 Travel</option>
+            <option value="shopping">🛍️ Shopping</option>
+            <option value="bills">💡 Bills</option>
+            <option value="other">📦 Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date-input">Date</label>
+          <input type="date" id="date-input" />
+        </div>
+      </div>
+      <button class="btn-add" onclick="addExpense()">+ Add Expense</button>
+    </section>
+
+    <!-- FILTER + EXPENSES LIST -->
+    <section class="list-section">
+      <div class="list-header">
+        <h2>All Expenses</h2>
+        <div class="filter-row">
+          <button class="filter-btn active" onclick="filterExpenses('all', this)">All</button>
+          <button class="filter-btn" onclick="filterExpenses('food', this)">🍔 Food</button>
+          <button class="filter-btn" onclick="filterExpenses('travel', this)">🚗 Travel</button>
+          <button class="filter-btn" onclick="filterExpenses('shopping', this)">🛍️ Shopping</button>
+          <button class="filter-btn" onclick="filterExpenses('bills', this)">💡 Bills</button>
+          <button class="filter-btn" onclick="filterExpenses('other', this)">📦 Other</button>
+        </div>
+      </div>
+
+     
+
+      <!-- EXPENSES GRID -->
+      <div class="expenses-grid" id="expenses-grid">
+        <div class="empty-state">
+          <div class="empty-icon">💰</div>
+          <p>No expenses yet.</p>
+          <span>Add your first expense above.</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="chinnu.js"></script>
+</body>
+</html>
